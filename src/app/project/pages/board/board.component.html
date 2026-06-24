@@ -1,0 +1,145 @@
+<div class="flex flex-col w-full h-full px-16 py-14 bg-[radial-gradient(circle_at_20%_20%,rgba(99,102,241,0.15),transparent_40%),radial-gradient(circle_at_80%_30%,rgba(20,184,166,0.12),transparent_40%),linear-gradient(to_bottom_right,#ffffff,#f8fafc)]">
+
+  <breadcrumbs [items]="breadcrumbs"></breadcrumbs>
+
+  <!-- Workspace Header -->
+  <div class="mt-6 mb-10 flex items-start justify-between">
+
+    <div class="flex items-center gap-5">
+      <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-400 via-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold shadow-lg ring-2 ring-white tracking-wide">
+        FB
+      </div>
+
+      <div class="flex flex-col">
+        <h1 class="text-3xl font-semibold text-slate-900 tracking-tight flex items-center gap-2">
+          FlowBoard
+          <span class="text-[10px] px-2 py-[2px] rounded-md bg-slate-900 text-white tracking-wide">
+            WORKSPACE
+          </span>
+        </h1>
+
+        <div class="flex items-center gap-3 mt-1 text-xs text-slate-500">
+          <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 border border-indigo-100">
+            Team Space
+          </span>
+
+          <span>
+            Plan • Track • Deliver
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+
+      <button
+        (click)="newCardOpen = true"
+        class="px-4 py-2 text-sm rounded-xl bg-gradient-to-r from-teal-500 to-indigo-500 text-white hover:scale-[1.03] transition shadow-md">
+        New Task
+      </button>
+
+      <button
+        (click)="statsOpen = !statsOpen"
+        class="px-4 py-2 text-sm rounded-xl bg-white border border-slate-200 hover:bg-indigo-50 transition">
+        Insights
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Workspace Stats Panel -->
+  <div *ngIf="statsOpen"
+       class="mb-6 grid grid-cols-4 gap-4">
+
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-white to-indigo-50 border border-slate-200 shadow-sm">
+      <p class="text-xs text-slate-500">Total Cards</p>
+      <p class="text-2xl font-semibold text-slate-800 mt-1">{{ stats?.total || 0 }}</p>
+    </div>
+
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-white to-indigo-50 border border-slate-200 shadow-sm">
+      <p class="text-xs text-slate-500">In Progress</p>
+      <p class="text-2xl font-semibold text-indigo-600 mt-1">{{ stats?.progress || 0 }}</p>
+    </div>
+
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-white to-emerald-50 border border-slate-200 shadow-sm">
+      <p class="text-xs text-slate-500">Completed</p>
+      <p class="text-2xl font-semibold text-emerald-600 mt-1">{{ stats?.done || 0 }}</p>
+    </div>
+
+    <div class="p-5 rounded-2xl bg-gradient-to-br from-white to-amber-50 border border-slate-200 shadow-sm">
+      <p class="text-xs text-slate-500">Backlog</p>
+      <p class="text-2xl font-semibold text-amber-600 mt-1">{{ stats?.backlog || 0 }}</p>
+    </div>
+
+  </div>
+
+  <!-- Filter Section -->
+  <div class="mb-6 px-6 py-4 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200 shadow">
+    <board-filter></board-filter>
+  </div>
+
+  <!-- Board Area -->
+  <div class="flex-1 rounded-[28px] bg-white/95 border border-slate-200 p-6 shadow-md">
+    <board-dnd></board-dnd>
+  </div>
+
+  <!-- New Card Modal -->
+  <div *ngIf="newCardOpen"
+       class="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
+
+      <div class="w-[420px] bg-white rounded-2xl shadow-xl border border-slate-200 p-6 relative overflow-hidden">
+
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold text-slate-800">Create Task Card</h3>
+        <button (click)="newCardOpen = false"
+                class="text-slate-400 hover:text-slate-600 text-xl">×</button>
+      </div>
+
+      <div class="flex flex-col gap-4">
+
+        <input
+          type="text"
+          placeholder="Card title"
+          [(ngModel)]="newCard.title"
+          class="px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+
+        <textarea
+          rows="3"
+          placeholder="Description"
+          [(ngModel)]="newCard.description"
+          class="px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+
+        <!-- Status Selector -->
+        <div class="flex flex-col gap-1">
+          <label class="text-xs text-slate-500">Status</label>
+          <select
+            [(ngModel)]="newCard.status"
+            class="px-3 py-2 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <option value="backlog">Ideas Queue</option>
+            <option value="progress">Active Work</option>
+            <option value="done">Shipped</option>
+          </select>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2">
+          <button
+            (click)="newCardOpen = false"
+            class="px-4 py-2 rounded-lg border border-slate-200 text-sm">
+            Cancel
+          </button>
+
+          <button
+            (click)="createCard()"
+            class="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-teal-500 text-white text-sm hover:opacity-90 transition">
+            Create Card
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

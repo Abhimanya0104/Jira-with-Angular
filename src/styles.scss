@@ -1,0 +1,117 @@
+@import '../node_modules/ng-zorro-antd/style/index.min.css';
+@import '../node_modules/ng-zorro-antd/tooltip/style/index.min.css';
+@import '../node_modules/ng-zorro-antd/spin/style/index.min.css';
+@import '../node_modules/ng-zorro-antd/modal/style/index.min.css';
+@import '../node_modules/ng-zorro-antd/dropdown/style/index.min.css';
+@import '../node_modules/ng-zorro-antd/select/style/index.min.css';
+@import '../node_modules/ng-zorro-antd/drawer/style/index.min.css';
+@import '../node_modules/ng-zorro-antd/notification/style/index.min.css';
+@import '../node_modules/ng-zorro-antd/popover/style/index.min.css';
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Global font and color refresh to avoid default Jira-like look */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --app-primary: #7c3aed;
+  --app-secondary: #14b8a6;
+  --app-bg: #f8fafc;
+  --app-surface: #ffffff;
+  --app-text: #1e293b;
+  --app-muted: #64748b;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+/* Override common blue/grey tones */
+.text-blue-500,
+.text-blue-600,
+.text-blue-700 {
+  color: var(--app-primary) !important;
+}
+
+.bg-blue-500,
+.bg-blue-600,
+.bg-blue-700 {
+  background-color: var(--app-primary) !important;
+}
+
+.border-blue-500,
+.border-blue-600 {
+  border-color: var(--app-primary) !important;
+}
+
+.text-gray-500,
+.text-gray-600,
+.text-gray-700 {
+  color: var(--app-muted) !important;
+}
+
+.pre-bootstrapping-container {
+  @apply w-full h-full relative;
+  .pre-bootstrapping-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* -------- Custom FlowBoard personality styles -------- */
+
+/* softer scrollbars (less Jira-like) */
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7c3aed, #14b8a6);
+  border-radius: 10px;
+}
+
+/* board container feel */
+board-dnd {
+  display: block;
+}
+
+/* subtle hover lift for cards */
+.board-card,
+[data-card] {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.board-card:hover,
+[data-card]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+/* column style differentiation */
+.board-column {
+  background: linear-gradient(to bottom, #ffffff, #f8fafc);
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+/* nicer buttons globally */
+button {
+  font-weight: 500;
+}
+
+/* modal glass feel */
+.fixed.inset-0 {
+  backdrop-filter: blur(6px);
+}

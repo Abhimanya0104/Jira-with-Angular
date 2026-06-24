@@ -1,0 +1,160 @@
+{
+  "id": "flowboard-001",
+  "name": "FlowBoard",
+  "url": "",
+  "description": "FlowBoard is a personal task and project management workspace designed for focused execution, clear priorities, and lightweight team collaboration.",
+  "category": "Project Management",
+  "createdAt": "2026-01-01T00:00:00.000Z",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "users": [
+    {
+      "id": "u1",
+      "name": "Alex Morgan",
+      "avatarUrl": "https://ui-avatars.com/api/?name=Alex+Morgan&background=4f46e5&color=fff",
+      "projectId": "flowboard-001"
+    },
+    {
+      "id": "u2",
+      "name": "Priya Sharma",
+      "avatarUrl": "https://ui-avatars.com/api/?name=Priya+Sharma&background=0ea5e9&color=fff",
+      "projectId": "flowboard-001"
+    },
+    {
+      "id": "u3",
+      "name": "Daniel Kim",
+      "avatarUrl": "https://ui-avatars.com/api/?name=Daniel+Kim&background=10b981&color=fff",
+      "projectId": "flowboard-001"
+    },
+    {
+      "id": "u4",
+      "name": "Sofia Alvarez",
+      "avatarUrl": "https://ui-avatars.com/api/?name=Sofia+Alvarez&background=f59e0b&color=fff",
+      "projectId": "flowboard-001"
+    },
+    {
+      "id": "u5",
+      "name": "Liam O'Connor",
+      "avatarUrl": "https://ui-avatars.com/api/?name=Liam+Oconnor&background=ef4444&color=fff",
+      "projectId": "flowboard-001"
+    }
+  ],
+  "issues": [
+    {
+      "id": "1",
+      "title": "Define Q1 product roadmap",
+      "description": "Outline the major initiatives and milestones planned for the first quarter including feature releases and internal improvements.",
+      "type": "Story",
+      "status": "Backlog",
+      "priority": "High",
+      "listPosition": 1,
+      "createdAt": "2026-01-01T10:00:00.000Z",
+      "updatedAt": "2026-01-01T10:00:00.000Z",
+      "reporterId": "u1",
+      "userIds": ["u1"]
+    },
+    {
+      "id": "2",
+      "title": "Implement authentication UI flow",
+      "description": "Refine the login, session persistence, and logout interactions using the existing mock auth setup.",
+      "type": "Task",
+      "status": "Todo",
+      "priority": "Highest",
+      "listPosition": 1,
+      "createdAt": "2026-01-01T10:00:00.000Z",
+      "updatedAt": "2026-01-01T10:00:00.000Z",
+      "reporterId": "u2",
+      "userIds": ["u2"]
+    },
+    {
+      "id": "3",
+      "title": "Build advanced board filtering",
+      "description": "Allow filtering issues by assignee, priority, and type from the board toolbar.",
+      "type": "Story",
+      "status": "InProgress",
+      "priority": "Medium",
+      "listPosition": 1,
+      "createdAt": "2026-01-01T10:00:00.000Z",
+      "updatedAt": "2026-01-01T10:00:00.000Z",
+      "reporterId": "u3",
+      "userIds": ["u3", "u2"]
+    },
+    {
+      "id": "4",
+      "title": "Improve Kanban drag performance",
+      "description": "Optimize drag-and-drop interactions to ensure smooth movement between columns.",
+      "type": "Task",
+      "status": "InProgress",
+      "priority": "High",
+      "listPosition": 2,
+      "createdAt": "2026-01-01T10:00:00.000Z",
+      "updatedAt": "2026-01-01T10:00:00.000Z",
+      "reporterId": "u1",
+      "userIds": ["u3"]
+    },
+    {
+      "id": "5",
+      "title": "Create activity timeline panel",
+      "description": "Display recent changes including task updates, status changes, and assignments.",
+      "type": "Story",
+      "status": "Done",
+      "priority": "Medium",
+      "listPosition": 2,
+      "createdAt": "2026-01-01T10:00:00.000Z",
+      "updatedAt": "2026-01-01T10:00:00.000Z",
+      "reporterId": "u4",
+      "userIds": ["u4"]
+    },
+    {
+      "id": "6",
+      "title": "Resolve avatar rendering bug",
+      "description": "Fix intermittent avatar loading issue in the issue detail modal.",
+      "type": "Bug",
+      "status": "Todo",
+      "priority": "High",
+      "listPosition": 3,
+      "createdAt": "2026-01-01T10:00:00.000Z",
+      "updatedAt": "2026-01-01T10:00:00.000Z",
+      "reporterId": "u2",
+      "userIds": ["u5"]
+    },
+    {
+      "id": "7",
+      "title": "Introduce dark mode theme",
+      "description": "Add a toggle allowing users to switch between light and dark workspace themes.",
+      "type": "Story",
+      "status": "Backlog",
+      "priority": "Low",
+      "listPosition": 2,
+      "createdAt": "2026-01-01T10:00:00.000Z",
+      "updatedAt": "2026-01-01T10:00:00.000Z",
+      "reporterId": "u3",
+      "userIds": ["u4"]
+    },
+    {
+      "id": "8",
+      "title": "Set up CI build pipeline",
+      "description": "Configure automated build and lint checks for the main branch.",
+      "type": "Task",
+      "status": "Backlog",
+      "priority": "Medium",
+      "listPosition": 3,
+      "createdAt": "2026-01-01T10:00:00.000Z",
+      "updatedAt": "2026-01-01T10:00:00.000Z",
+      "reporterId": "u5",
+      "userIds": ["u1", "u5"]
+    },
+    {
+      "id": "9",
+      "title": "Write onboarding documentation",
+      "description": "Prepare internal documentation explaining how to use FlowBoard effectively.",
+      "type": "Task",
+      "status": "Done",
+      "priority": "Low",
+      "listPosition": 4,
+      "createdAt": "2026-01-01T10:00:00.000Z",
+      "updatedAt": "2026-01-01T10:00:00.000Z",
+      "reporterId": "u1",
+      "userIds": ["u2"]
+    }
+  ]
+}
