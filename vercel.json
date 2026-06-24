@@ -1,8 +1,8 @@
 {
   "version": 2,
   "framework": "angular",
-  "buildCommand": "npm run build -- --configuration production",
-  "outputDirectory": "dist",
+  "buildCommand": "npx ng build frontend --configuration production",
+  "outputDirectory": "dist/frontend/browser",
   "installCommand": "npm install",
   "routes": [
     {
